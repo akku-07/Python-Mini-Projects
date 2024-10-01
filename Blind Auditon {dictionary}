@@ -1,0 +1,20 @@
+import art
+print(art.logo)
+
+
+more_bidders="yes"
+bid_dict={}
+max_bid=0
+max_bidder=""
+while more_bidders=="yes":
+    name=input("What is your name?: ")
+    bid=int(input("What is your bid: $"))
+    bid_dict[name]=bid
+    if max_bid < bid:
+        max_bid = bid
+        max_bidder= name
+    more_bidders=input("Are there any other bidders? Type 'yes or 'no. ")
+
+    if more_bidders=="no":
+        print(f"The winner is {max_bidder} with a bid of ${max_bid}")
+        break
