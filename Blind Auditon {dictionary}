@@ -1,5 +1,5 @@
-import art
-print(art.logo)
+import bidart
+print(bidart.logo)
 
 
 more_bidders="yes"
