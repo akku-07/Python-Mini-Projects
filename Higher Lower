@@ -1,0 +1,59 @@
+import art, random, game_data
+
+
+play_status=0
+score=0
+
+play_data=game_data.data
+
+celeb_a=random.choice(play_data)
+celeb_b=random.choice(play_data)
+
+while True:
+    print(art.logo)
+    if play_status==-1:
+        print(f"Sorry, that's wrong. Final score: {score}")
+        break
+
+    elif play_status==0:
+        pass
+
+    elif play_status==1:
+        print(f"You're right! Current score: {score}.")
+
+    print(f"Compare A: {celeb_a["name"]}, a {celeb_a["description"]}, from {celeb_a["country"]}.")
+    print(art.vs)
+    print(f"Against B: {celeb_b["name"]}, a {celeb_b["description"]}, from {celeb_b["country"]}.")
+
+    user_ans=input("Who has more followers? Type 'A' or 'B': ")
+
+    if user_ans.upper()=="A":
+        if celeb_a["follower_count"]>celeb_b["follower_count"]:
+            score+=1
+            play_status=1
+            play_data.remove(celeb_b)
+            celeb_a = celeb_a
+            celeb_b = random.choice(play_data)
+        else:
+            play_status=-1
+
+    elif user_ans.upper() == "B":
+        if celeb_a["follower_count"]<celeb_b["follower_count"]:
+            score+=1
+            play_status=1
+            play_data.remove(celeb_a)
+            celeb_a = celeb_b
+            celeb_b = random.choice(play_data)
+        else:
+            play_status=-1
+
+    print("\n"*20)
+
+
+
+
+
+
+
+
+
